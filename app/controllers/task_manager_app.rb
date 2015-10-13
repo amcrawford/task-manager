@@ -26,4 +26,8 @@ class TaskManagerApp < Sinatra::Base
     erb :show
   end
 
+  not_found do
+    erb :error
+  end
+
 end
