@@ -1,9 +1,13 @@
-
 <div class="container">
   <h1>Your Tasks for this Week</h1>
 </div>
 <div class="container" style="margin-left: 24px">
   <% @tasks.each do |task| %>
     <h3><%= task.id %>: <a href="/tasks/<%= task.id %>" style="color: black"><%= task.title %></a></h3>
+    <a href="/tasks/<%=task.id%>/edit" class="btn btn-info">Edit</a>
+    <form action="/task/<%= task.id %>" method="POST">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" class="btn btn-info" value="Delete"/>
+    </form>
   <% end %>
 </div>

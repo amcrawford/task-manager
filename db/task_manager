@@ -1,9 +1,6 @@
 ---
 tasks:
-- id: 1
-  title: Homework
-  description: "Finish Styling Site\r\n"
 - id: 2
   title: Grocery Shop
-  description: "See list\r\n"
+  description: "See my list!\r\n"
 total: 2
