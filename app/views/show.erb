@@ -1,5 +1,13 @@
 <div class="container">
   <h1><%= @task.title %></h1>
 
-  <p style="margin-top: 12px"><%= @task.description %></p>
+  <div style="margin-top: 24px">
+    <%= @task.description %>
+  </div>
+</br>
+  <a href="/task/<%=@task.id%>/edit" class="btn btn-info">Edit</a>
+  <form action="/task/<%= @task.id %>" method="POST">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" class="btn btn-info" value="Delete"/>
+  </form>
 </div>

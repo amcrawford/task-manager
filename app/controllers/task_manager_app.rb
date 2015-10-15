@@ -23,7 +23,7 @@ class TaskManagerApp < Sinatra::Base
     erb :show
   end
 
-  get '/tasks/:id/edit' do |id|
+  get '/task/:id/edit' do |id|
     @task = TaskManager.find(id.to_i)
     erb :edit
   end
@@ -34,6 +34,11 @@ class TaskManagerApp < Sinatra::Base
   end
 
   delete '/task/:id' do |id|
+    TaskManager.delete(id.to_i)
+    redirect "/tasks"
+  end
+
+  delete '/tasks/:id' do |id|
     TaskManager.delete(id.to_i)
     redirect "/tasks"
   end

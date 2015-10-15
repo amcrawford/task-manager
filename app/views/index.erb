@@ -1,13 +1,12 @@
 <div class="container">
-  <h1>Your Tasks for this Week</h1>
+  <h1 id="greeting">Your Tasks for this Week</h1>
 </div>
-<div class="container" style="margin-left: 24px">
-  <% @tasks.each do |task| %>
-    <h3><%= task.id %>: <a href="/tasks/<%= task.id %>" style="color: black"><%= task.title %></a></h3>
-    <a href="/tasks/<%=task.id%>/edit" class="btn btn-info">Edit</a>
-    <form action="/task/<%= task.id %>" method="POST">
+<div class="container" style="margin-left: 24px" id="task_list">
+  <% @tasks.each_with_index do |task, i| %>
+    <h3><%= i+1 %>. <a href="/tasks/<%= task.id %>" style="color: black"><%= task.title %></a></h3>
+    <form action="/tasks/<%= task.id %>" method="POST">
       <input type="hidden" name="_method" value="delete">
-      <input type="submit" class="btn btn-info" value="Delete"/>
+      <input type="submit" class="btn btn-info" value="Completed"/>
     </form>
   <% end %>
 </div>
